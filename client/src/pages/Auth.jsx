@@ -24,16 +24,13 @@ const Auth = () => {
     setIsLoading(true);
     const val = isLogin ? "login" : "register";
     try {
-      const res = await fetch(
-        `http://localhost:3000/api/auth/${val}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user),
-        }
-      );
+      const res = await fetch(`https://demo-2xgi.vercel.app/api/auth/${val}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
       const data = await res.json();
       if (res.ok) {
         alert(data.msg);
